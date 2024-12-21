@@ -16,7 +16,6 @@ import cl.ipss.api.eva03.apieva03.responses.RegistroResponse;
 import cl.ipss.api.eva03.apieva03.responses.RegistrosResponse;
 import cl.ipss.api.eva03.apieva03.services.PracticaService;
 import cl.ipss.api.eva03.apieva03.services.RegistroService;
-import jakarta.persistence.PrePersist;
 
 @Controller
 @RequestMapping("api/estudiante")

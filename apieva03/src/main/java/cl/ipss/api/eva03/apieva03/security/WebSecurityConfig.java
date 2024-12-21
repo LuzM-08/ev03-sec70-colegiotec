@@ -93,7 +93,7 @@ public class WebSecurityConfig {
     @Bean
     public UserDetailsService testUser(PasswordEncoder PasswordEncoder){
         User.UserBuilder user = User.builder();
-        UserDetails user1 = user.username("Docente")
+        UserDetails user1 = user.username("docente")
         .password(passwordEncoder().encode("ipsssec70"))
         .roles()
         .build();
@@ -104,7 +104,6 @@ public class WebSecurityConfig {
     PasswordEncoder passwordEncoder(){
         return new BCryptPasswordEncoder();
     }
- 
-
 
 }
+

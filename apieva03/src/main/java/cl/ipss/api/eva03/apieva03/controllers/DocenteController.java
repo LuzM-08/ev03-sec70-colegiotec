@@ -51,7 +51,7 @@ public class DocenteController {
 
     // Crear Práctica - Post
     @PostMapping(value = "practica/crear", produces = "application/json")
-    public ResponseEntity<Object> createDocente(@RequestBody Practica practica) {
+    public ResponseEntity<Object> createPractica(@RequestBody Practica practica) {
 
         if (practica.getDescripcion().equals("") || practica.getDescripcion() == null) {
             throw new RuntimeException("La descripción es requerida");
@@ -71,7 +71,7 @@ public class DocenteController {
 
     // Listar Prácticas - Get
     @GetMapping(value = "practica/listar", produces = "application/json")
-    public ResponseEntity<Object> getPracticas() {
+    public ResponseEntity<Object> getPractica() {
         PracticasResponse practicasResponse = new PracticasResponse();
         practicasResponse.setStatus(200);
         practicasResponse.setMessage("Prácticas listadas correctamente");
@@ -83,7 +83,7 @@ public class DocenteController {
 
     // Buscar Práctica por Id - Get
     @GetMapping(value = "practica/buscar/{id}", produces = "application/json")
-    public ResponseEntity<Object> getPracticas(@PathVariable long id) {
+    public ResponseEntity<Object> getPractica(@PathVariable long id) {
         PracticaResponse practicaResponse = new PracticaResponse();
         practicaResponse.setStatus(200);
         practicaResponse.setMessage("Práctica encontrada");
@@ -99,7 +99,7 @@ public class DocenteController {
         PracticaResponse practicaResponse = new PracticaResponse();
         Practica practica = new Practica();
         practica = practicaService.buscar(id);
-        practica.setId(practicaRequest.getId());
+        practica.setPract_id(practicaRequest.getPract_id());
         practica.setDescripcion(practicaRequest.getDescripcion());
         practica.setFechaFin(practicaRequest.getFechaFin());
         practica.setFechaIni(practicaRequest.getFechaIni());
@@ -149,7 +149,7 @@ public class DocenteController {
 
     // Listar Docente - Get
     @GetMapping(value = "docente/listar", produces = "application/json")
-    public ResponseEntity<Object> getDocentes() {
+    public ResponseEntity<Object> getDocente() {
         DocentesResponse docentesResponse = new DocentesResponse();
         docentesResponse.setStatus(200);
         docentesResponse.setMessage("Docentes listados correctamente");
@@ -177,7 +177,7 @@ public class DocenteController {
         DocenteResponse docenteResponse = new DocenteResponse();
         Docente docente = new Docente();
         docente = docenteService.buscar(id);
-        docente.setId(docenteRequest.getId());
+        docente.setDoc_id(docenteRequest.getDoc_id());
         docente.setNombreCompleto(docenteRequest.getNombreCompleto());
         docente.setCarrera(docenteRequest.getCarrera());
         docente.setCorreo(docenteRequest.getCorreo());
@@ -252,7 +252,7 @@ public class DocenteController {
         EstudianteResponse estudianteResponse = new EstudianteResponse();
         Estudiante estudiante = new Estudiante();
         estudiante = estudianteService.buscar(id);
-        estudiante.setId(estudianteRequest.getId());
+        estudiante.setEst_id(estudianteRequest.getEst_id());
         estudiante.setCarrera(estudianteRequest.getCarrera());
         estudiante.setCorreo(estudianteRequest.getCorreo());
         estudiante.setNombreCompleto(estudianteRequest.getNombreCompleto());
@@ -298,7 +298,7 @@ public class DocenteController {
 
     // Listar Registros - Get
     @GetMapping(value = "registro/listar", produces = "application/json")
-    public ResponseEntity<Object> getRegistros() {
+    public ResponseEntity<Object> getRegistro() {
         RegistrosResponse registrosResponse = new RegistrosResponse();
         registrosResponse.setStatus(200);
         registrosResponse.setMessage("Registros listados correctamente");
@@ -310,7 +310,7 @@ public class DocenteController {
 
     // Buscar Registros por Id - Get
     @GetMapping(value = "registro/buscar/{id}", produces = "application/json")
-    public ResponseEntity<Object> getRegistros(@PathVariable long id) {
+    public ResponseEntity<Object> getRegistro(@PathVariable long id) {
         RegistroResponse registroResponse = new RegistroResponse();
         registroResponse.setStatus(200);
         registroResponse.setMessage("Registro encontrado(a)");
@@ -322,11 +322,11 @@ public class DocenteController {
 
     // Actualizar Registros por Id - Put
     @PutMapping(value = "registro/actualizar/{id}", produces = "application/json")
-    public ResponseEntity<Object> setRegistros(@PathVariable long id, @RequestBody Registro registroRequest) {
+    public ResponseEntity<Object> setRegistro(@PathVariable long id, @RequestBody Registro registroRequest) {
         RegistroResponse registroResponse = new RegistroResponse();
         Registro registro = new Registro();
         registro = registroService.buscar(id);
-        registro.setId(registroRequest.getId());
+        registro.setReg_id(registroRequest.getReg_id());
         registro.setDescripcion(registroRequest.getDescripcion());
         registro.setTitulo(registroRequest.getTitulo());
         registro.setPractica(registroRequest.getPractica());
@@ -400,10 +400,10 @@ public class DocenteController {
         EmpresaResponse empresaResponse = new EmpresaResponse();
         Empresa empresa = new Empresa();
         empresa = empresaService.buscar(id);
-        empresa.setId(empresaRequest.getId());
+        empresa.setEmp_id(empresaRequest.getEmp_id());
         empresa.setDireccion(empresaRequest.getDireccion());
         empresa.setNombre(empresaRequest.getNombre());
-        empresa.setNumber(empresaRequest.getNumber());
+        empresa.setTelefono(empresaRequest.getTelefono());
         empresa.setRubro(empresaRequest.getRubro());
         empresa.setJefe(empresaRequest.getJefe());
         empresaService.crear(empresa);
@@ -472,11 +472,11 @@ public class DocenteController {
 
     // Actualizar Práctica por Id - Put
     @PutMapping(value = "jefe/actualizar/{id}", produces = "application/json")
-    public ResponseEntity<Object> setEmpresa(@PathVariable long id, @RequestBody Jefe jefeRequest) {
+    public ResponseEntity<Object> setJefe(@PathVariable long id, @RequestBody Jefe jefeRequest) {
         JefeResponse jefeResponse = new JefeResponse();
         Jefe jefe = new Jefe();
         jefe = jefeService.buscar(id);
-        jefe.setId(jefeRequest.getId());
+        jefe.setJefe_id(jefeRequest.getJefe_id());
         jefe.setNombreCompleto(jefeRequest.getNombreCompleto());
         jefeService.crear(jefe);
 

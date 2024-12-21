@@ -16,11 +16,11 @@ import lombok.Data;
 public class Docente {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private long doc_id;
     private String nombreCompleto;
     private String correo;
     private String carrera;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "docente", cascade = { CascadeType.PERSIST, CascadeType.MERGE })
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "docente", cascade = { CascadeType.ALL})
     private List<Practica> practica;
 }

@@ -10,7 +10,8 @@ import cl.ipss.api.eva03.apieva03.repositories.PracticaRepository;
 
 @Service
 public class PracticaService {
-        @Autowired
+
+    @Autowired
     public PracticaRepository practicaRepository;
 
     // crear
@@ -18,18 +19,18 @@ public class PracticaService {
         return practicaRepository.save(practica);
     }
 
-    // listar 
-    public List<Practica> ListarTodos(){
+    // listar
+    public List<Practica> ListarTodos() {
         return practicaRepository.findAll();
     }
 
     // buscar
-    public Practica buscar (long id){
+    public Practica buscar(long id) {
         return practicaRepository.findById(id).orElse(null);
     }
 
     // eliminar
-    public void eliminar(long id){
+    public void eliminar(long id) {
         practicaRepository.deleteById(id);
     }
 

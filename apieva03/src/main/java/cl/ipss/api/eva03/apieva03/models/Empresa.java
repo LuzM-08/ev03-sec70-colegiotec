@@ -11,37 +11,24 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
-@Getter
-@Setter
+@Data
 @Entity
 public class Empresa {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private long emp_id;
     private String nombre;
     private String rubro;
     private String direccion;
-    private long number;
+    private long telefono;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_jefe")
+    @ManyToOne(fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE })
+    @JoinColumn(name = "jefe_id")
     private Jefe jefe;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "empresa", cascade = { CascadeType.PERSIST, CascadeType.MERGE })
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "empresa", cascade = { CascadeType.ALL })
     private List<Practica> practica;
-
-
-    public Empresa(String nombre, String rubro, String direccion, long number) {
-        this.nombre = nombre;
-        this.rubro = rubro;
-        this.direccion = direccion;
-        this.number = number;
-    }
-
-    public Empresa() {
-    }
 
 }

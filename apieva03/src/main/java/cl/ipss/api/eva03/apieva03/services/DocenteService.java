@@ -19,20 +19,19 @@ public class DocenteService {
         return docenteRepository.save(docente);
     }
 
-    // listar 
-    public List<Docente> ListarTodos(){
+    // listar
+    public List<Docente> ListarTodos() {
         return docenteRepository.findAll();
     }
 
     // buscar
-    public Docente buscar (long id){
+    public Docente buscar(long id) {
         return docenteRepository.findById(id).orElse(null);
     }
 
     // eliminar
-    public void eliminar(long id){
+    public void eliminar(long id) {
         docenteRepository.deleteById(id);
     }
-
 
 }

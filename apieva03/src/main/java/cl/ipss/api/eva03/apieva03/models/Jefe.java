@@ -9,28 +9,19 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
+@Data
 @Entity
-@Getter
-@Setter
 public class Jefe {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private long jefe_id;
     private String nombreCompleto;
     private String correo;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "jefe", cascade = { CascadeType.PERSIST, CascadeType.MERGE })
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "jefe", cascade = { CascadeType.ALL })
     private List<Empresa> empresa;
 
-    public Jefe(String nombreCompleto, String correo) {
-        this.nombreCompleto = nombreCompleto;
-        this.correo = correo;
-    }
-
-    public Jefe() {
-    }
 }
