@@ -4,6 +4,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
 
 import cl.ipss.api.eva03.apieva03.models.Docente;
 import cl.ipss.api.eva03.apieva03.models.Empresa;
@@ -30,24 +36,28 @@ import cl.ipss.api.eva03.apieva03.services.JefeService;
 import cl.ipss.api.eva03.apieva03.services.PracticaService;
 import cl.ipss.api.eva03.apieva03.services.RegistroService;
 
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PutMapping;
-
 @Controller
 @RequestMapping("api/docente")
 public class DocenteController {
 
     @Autowired
     private DocenteService docenteService;
+    
+    @Autowired
     private PracticaService practicaService;
+    
+    @Autowired
     private EstudianteService estudianteService;
+    
+    @Autowired
     private RegistroService registroService;
+    
+    @Autowired
     private EmpresaService empresaService;
+    
+    @Autowired
     private JefeService jefeService;
+
 
     // Crear Práctica - Post
     @PostMapping(value = "practica/crear", produces = "application/json")
@@ -55,7 +65,7 @@ public class DocenteController {
 
         if (practica.getDescripcion().equals("") || practica.getDescripcion() == null) {
             throw new RuntimeException("La descripción es requerida");
-        }
+        } 
         practicaService.crear(practica);
 
         // Estructura de Respuesta
@@ -99,7 +109,6 @@ public class DocenteController {
         PracticaResponse practicaResponse = new PracticaResponse();
         Practica practica = new Practica();
         practica = practicaService.buscar(id);
-        practica.setPractId(practicaRequest.getPractId());
         practica.setDescripcion(practicaRequest.getDescripcion());
         practica.setFechaFin(practicaRequest.getFechaFin());
         practica.setFechaIni(practicaRequest.getFechaIni());
@@ -177,7 +186,6 @@ public class DocenteController {
         DocenteResponse docenteResponse = new DocenteResponse();
         Docente docente = new Docente();
         docente = docenteService.buscar(id);
-        docente.setDocId(docenteRequest.getDocId());
         docente.setNombreCompleto(docenteRequest.getNombreCompleto());
         docente.setCarrera(docenteRequest.getCarrera());
         docente.setCorreo(docenteRequest.getCorreo());
@@ -252,7 +260,6 @@ public class DocenteController {
         EstudianteResponse estudianteResponse = new EstudianteResponse();
         Estudiante estudiante = new Estudiante();
         estudiante = estudianteService.buscar(id);
-        estudiante.setEstId(estudianteRequest.getEstId());
         estudiante.setCarrera(estudianteRequest.getCarrera());
         estudiante.setCorreo(estudianteRequest.getCorreo());
         estudiante.setNombreCompleto(estudianteRequest.getNombreCompleto());
@@ -326,7 +333,6 @@ public class DocenteController {
         RegistroResponse registroResponse = new RegistroResponse();
         Registro registro = new Registro();
         registro = registroService.buscar(id);
-        registro.setRegId(registroRequest.getRegId());
         registro.setDescripcion(registroRequest.getDescripcion());
         registro.setTitulo(registroRequest.getTitulo());
         registro.setPractica(registroRequest.getPractica());
@@ -400,7 +406,6 @@ public class DocenteController {
         EmpresaResponse empresaResponse = new EmpresaResponse();
         Empresa empresa = new Empresa();
         empresa = empresaService.buscar(id);
-        empresa.setEmpId(empresaRequest.getEmpId());
         empresa.setDireccion(empresaRequest.getDireccion());
         empresa.setNombre(empresaRequest.getNombre());
         empresa.setTelefono(empresaRequest.getTelefono());
@@ -478,7 +483,6 @@ public class DocenteController {
         JefeResponse jefeResponse = new JefeResponse();
         Jefe jefe = new Jefe();
         jefe = jefeService.buscar(id);
-        jefe.setJefeId(jefeRequest.getJefeId());
         jefe.setNombreCompleto(jefeRequest.getNombreCompleto());
         jefeService.crear(jefe);
 

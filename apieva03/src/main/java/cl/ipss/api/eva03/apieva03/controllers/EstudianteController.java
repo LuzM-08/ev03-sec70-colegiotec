@@ -22,6 +22,7 @@ import cl.ipss.api.eva03.apieva03.services.RegistroService;
 public class EstudianteController {
     @Autowired
     private PracticaService practicaService;
+    @Autowired
     private RegistroService registroService;
 
     // Crear Práctica - Post

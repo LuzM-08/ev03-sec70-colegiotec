@@ -6,4 +6,5 @@ import cl.ipss.api.eva03.apieva03.models.Practica;
 
 @Repository
 public interface PracticaRepository extends JpaRepository<Practica, Long> {
+    
 }
