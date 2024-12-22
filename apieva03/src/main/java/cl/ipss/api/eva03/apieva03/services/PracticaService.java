@@ -25,13 +25,13 @@ public class PracticaService {
     }
 
     // buscar
-    public Practica buscar(long id) {
-        return practicaRepository.findById(id).orElse(null);
+    public Practica buscar(long pracId) {
+        return practicaRepository.findById(pracId).orElse(null);
     }
 
     // eliminar
-    public void eliminar(long id) {
-        practicaRepository.deleteById(id);
+    public void eliminar(long pracId) {
+        practicaRepository.deleteById(pracId);
     }
 
 }

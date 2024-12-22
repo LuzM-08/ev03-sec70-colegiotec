@@ -24,13 +24,13 @@ public class RegistroService {
     }
 
     // buscar
-    public Registro buscar (long id){
-        return registroRepository.findById(id).orElse(null);
+    public Registro buscar (long regId){
+        return registroRepository.findById(regId).orElse(null);
     }
 
     // eliminar
-    public void eliminar(long id){
-        registroRepository.deleteById(id);
+    public void eliminar(long regId){
+        registroRepository.deleteById(regId);
     }
 
 

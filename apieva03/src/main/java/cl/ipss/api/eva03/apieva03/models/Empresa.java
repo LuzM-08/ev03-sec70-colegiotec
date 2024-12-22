@@ -18,14 +18,14 @@ import lombok.Data;
 public class Empresa {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long emp_id;
+    private long empId;
     private String nombre;
     private String rubro;
     private String direccion;
     private long telefono;
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE })
-    @JoinColumn(name = "jefe_id")
+    @JoinColumn(name = "jefeId")
     private Jefe jefe;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "empresa", cascade = { CascadeType.ALL })

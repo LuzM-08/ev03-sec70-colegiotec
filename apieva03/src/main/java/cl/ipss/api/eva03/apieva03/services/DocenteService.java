@@ -25,13 +25,13 @@ public class DocenteService {
     }
 
     // buscar
-    public Docente buscar(long id) {
-        return docenteRepository.findById(id).orElse(null);
+    public Docente buscar(long docId) {
+        return docenteRepository.findById(docId).orElse(null);
     }
 
     // eliminar
-    public void eliminar(long id) {
-        docenteRepository.deleteById(id);
+    public void eliminar(long docId) {
+        docenteRepository.deleteById(docId);
     }
 
 }

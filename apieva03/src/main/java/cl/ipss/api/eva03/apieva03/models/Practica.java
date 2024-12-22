@@ -25,18 +25,18 @@ import lombok.Data;
 public class Practica {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long pract_id;
+    private long practId;
     private LocalDate fechaIni;
     private LocalDate fechaFin;
     private String descripcion;
     @ManyToOne(fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE })
-    @JoinColumn(name = "est_id")
+    @JoinColumn(name = "estId")
     private Estudiante estudiante;
     @ManyToOne(fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE })
-    @JoinColumn(name = "doc_id")
+    @JoinColumn(name = "docId")
     private Docente docente;
     @ManyToOne(fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE })
-    @JoinColumn(name = "emp_id")
+    @JoinColumn(name = "empId")
     private Empresa empresa;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "practica", cascade = { CascadeType.ALL})

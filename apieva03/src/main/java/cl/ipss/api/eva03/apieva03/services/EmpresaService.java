@@ -25,13 +25,13 @@ public class EmpresaService {
     }
 
     // buscar
-    public Empresa buscar (long id){
-        return empresaRepository.findById(id).orElse(null);
+    public Empresa buscar (long empId){
+        return empresaRepository.findById(empId).orElse(null);
     }
 
     // eliminar
-    public void eliminar(long id){
-        empresaRepository.deleteById(id);
+    public void eliminar(long empId){
+        empresaRepository.deleteById(empId);
     }
 
 }

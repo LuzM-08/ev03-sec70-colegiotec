@@ -17,7 +17,7 @@ public class Jefe {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long jefe_id;
+    private long jefeId;
     private String nombreCompleto;
     private String correo;
 

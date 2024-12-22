@@ -16,7 +16,7 @@ public class Estudiante {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long est_id;
+    private long estId;
     private String nombreCompleto;
     private String correo;
     private String carrera;

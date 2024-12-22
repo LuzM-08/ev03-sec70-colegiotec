@@ -24,13 +24,13 @@ public class EstudianteService {
     }
 
      // buscar
-     public Estudiante buscar (long id){
-        return estudianteRepository.findById(id).orElse(null);
+     public Estudiante buscar (long estId){
+        return estudianteRepository.findById(estId).orElse(null);
     }
 
     // eliminar
-    public void eliminar(long id){
-        estudianteRepository.deleteById(id);
+    public void eliminar(long estId){
+        estudianteRepository.deleteById(estId);
     }
 
 }

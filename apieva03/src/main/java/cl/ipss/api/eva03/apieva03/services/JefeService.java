@@ -24,12 +24,12 @@ public class JefeService {
     }
 
     // buscar
-    public Jefe buscar (long id){
-        return jefeRepository.findById(id).orElse(null);
+    public Jefe buscar (long jefeId){
+        return jefeRepository.findById(jefeId).orElse(null);
     }
 
     // eliminar
-    public void eliminar(long id){
-        jefeRepository.deleteById(id);
+    public void eliminar(long jefeId){
+        jefeRepository.deleteById(jefeId);
     }
 }

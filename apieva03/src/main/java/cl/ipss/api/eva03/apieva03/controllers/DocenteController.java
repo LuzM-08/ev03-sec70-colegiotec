@@ -99,7 +99,7 @@ public class DocenteController {
         PracticaResponse practicaResponse = new PracticaResponse();
         Practica practica = new Practica();
         practica = practicaService.buscar(id);
-        practica.setPract_id(practicaRequest.getPract_id());
+        practica.setPractId(practicaRequest.getPractId());
         practica.setDescripcion(practicaRequest.getDescripcion());
         practica.setFechaFin(practicaRequest.getFechaFin());
         practica.setFechaIni(practicaRequest.getFechaIni());
@@ -177,7 +177,7 @@ public class DocenteController {
         DocenteResponse docenteResponse = new DocenteResponse();
         Docente docente = new Docente();
         docente = docenteService.buscar(id);
-        docente.setDoc_id(docenteRequest.getDoc_id());
+        docente.setDocId(docenteRequest.getDocId());
         docente.setNombreCompleto(docenteRequest.getNombreCompleto());
         docente.setCarrera(docenteRequest.getCarrera());
         docente.setCorreo(docenteRequest.getCorreo());
@@ -252,7 +252,7 @@ public class DocenteController {
         EstudianteResponse estudianteResponse = new EstudianteResponse();
         Estudiante estudiante = new Estudiante();
         estudiante = estudianteService.buscar(id);
-        estudiante.setEst_id(estudianteRequest.getEst_id());
+        estudiante.setEstId(estudianteRequest.getEstId());
         estudiante.setCarrera(estudianteRequest.getCarrera());
         estudiante.setCorreo(estudianteRequest.getCorreo());
         estudiante.setNombreCompleto(estudianteRequest.getNombreCompleto());
@@ -326,7 +326,7 @@ public class DocenteController {
         RegistroResponse registroResponse = new RegistroResponse();
         Registro registro = new Registro();
         registro = registroService.buscar(id);
-        registro.setReg_id(registroRequest.getReg_id());
+        registro.setRegId(registroRequest.getRegId());
         registro.setDescripcion(registroRequest.getDescripcion());
         registro.setTitulo(registroRequest.getTitulo());
         registro.setPractica(registroRequest.getPractica());
@@ -400,7 +400,7 @@ public class DocenteController {
         EmpresaResponse empresaResponse = new EmpresaResponse();
         Empresa empresa = new Empresa();
         empresa = empresaService.buscar(id);
-        empresa.setEmp_id(empresaRequest.getEmp_id());
+        empresa.setEmpId(empresaRequest.getEmpId());
         empresa.setDireccion(empresaRequest.getDireccion());
         empresa.setNombre(empresaRequest.getNombre());
         empresa.setTelefono(empresaRequest.getTelefono());
@@ -446,7 +446,9 @@ public class DocenteController {
 
     }
 
-    // Listar Registros - Get
+
+
+    // Listar Jefe - Get
     @GetMapping(value = "jefe/listar", produces = "application/json")
     public ResponseEntity<Object> getJefe() {
         JefesResponse jefesResponse = new JefesResponse();
@@ -458,7 +460,7 @@ public class DocenteController {
                 .body(jefesResponse);
     }
 
-    // Buscar Registros por Id - Get
+    // Buscar Jefe por Id - Get
     @GetMapping(value = "jefe/buscar/{id}", produces = "application/json")
     public ResponseEntity<Object> getJefe(@PathVariable long id) {
         JefeResponse jefeResponse = new JefeResponse();
@@ -470,13 +472,13 @@ public class DocenteController {
                 .body(jefeResponse);
     }
 
-    // Actualizar Práctica por Id - Put
+    // Actualizar Jefe por Id - Put
     @PutMapping(value = "jefe/actualizar/{id}", produces = "application/json")
     public ResponseEntity<Object> setJefe(@PathVariable long id, @RequestBody Jefe jefeRequest) {
         JefeResponse jefeResponse = new JefeResponse();
         Jefe jefe = new Jefe();
         jefe = jefeService.buscar(id);
-        jefe.setJefe_id(jefeRequest.getJefe_id());
+        jefe.setJefeId(jefeRequest.getJefeId());
         jefe.setNombreCompleto(jefeRequest.getNombreCompleto());
         jefeService.crear(jefe);
 
@@ -487,7 +489,7 @@ public class DocenteController {
                 .body(jefe);
     }
 
-    // Eliminar Registro por Id - Delete
+    // Eliminar Jefe por Id - Delete
     @DeleteMapping(value = "jefe/eliminar/{id}", produces = "application/json")
     public ResponseEntity<Object> deleteJefe(@PathVariable long id) {
         JefeResponse jefeResponse = new JefeResponse();

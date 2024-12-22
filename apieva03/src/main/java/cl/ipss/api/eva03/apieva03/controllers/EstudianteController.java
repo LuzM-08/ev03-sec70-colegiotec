@@ -26,7 +26,7 @@ public class EstudianteController {
 
     // Crear Práctica - Post
     @PostMapping(value = "practica/crear", produces = "application/json")
-    public ResponseEntity<Object> createDocente(@RequestBody Practica practica) {
+    public ResponseEntity<Object> createPractica(@RequestBody Practica practica) {
 
         if (practica.getDescripcion().equals("") || practica.getDescripcion() == null) {
             throw new RuntimeException("La descripción es requerida");
@@ -44,8 +44,8 @@ public class EstudianteController {
 
     }
 
-    // Listar Prácticas - Get
-    @GetMapping(value = "registro/listar", produces = "application/json")
+    // Listar Practicas - Get
+    @GetMapping(value = "practica/listar", produces = "application/json")
     public ResponseEntity<Object> getPracticas() {
         PracticasResponse practicasResponse = new PracticasResponse();
         practicasResponse.setStatus(200);
@@ -77,7 +77,7 @@ public class EstudianteController {
     }
 
     // Listar Registros - Get
-    @GetMapping(value = "practica/listar", produces = "application/json")
+    @GetMapping(value = "registro/listar", produces = "application/json")
     public ResponseEntity<Object> getRegistros() {
         RegistrosResponse registrosResponse = new RegistrosResponse();
         registrosResponse.setStatus(200);

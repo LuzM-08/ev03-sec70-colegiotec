@@ -16,7 +16,7 @@ public class Registro {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long reg_id;
+    private long regId;
     private String titulo; 
     private String descripcion;
 

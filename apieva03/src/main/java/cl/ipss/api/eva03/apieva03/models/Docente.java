@@ -16,7 +16,7 @@ import lombok.Data;
 public class Docente {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long doc_id;
+    private long docId;
     private String nombreCompleto;
     private String correo;
     private String carrera;

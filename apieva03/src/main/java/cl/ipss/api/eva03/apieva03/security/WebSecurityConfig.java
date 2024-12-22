@@ -24,6 +24,10 @@ public class WebSecurityConfig {
         .permitAll()
         .requestMatchers("api/estudiante/practica/listar")
         .permitAll()
+        .requestMatchers("api/estudiante/registro/crear")
+        .permitAll()
+        .requestMatchers("api/estudiante/registro/listar")
+        .permitAll()
         .requestMatchers("api/docente/practica/crear")
         .authenticated()
         .requestMatchers("api/docente/practica/listar")
@@ -94,7 +98,7 @@ public class WebSecurityConfig {
     public UserDetailsService testUser(PasswordEncoder PasswordEncoder){
         User.UserBuilder user = User.builder();
         UserDetails user1 = user.username("docente")
-        .password(passwordEncoder().encode("ipsssec70"))
+        .password(passwordEncoder().encode("eva003"))
         .roles()
         .build();
         return new InMemoryUserDetailsManager(user1);
